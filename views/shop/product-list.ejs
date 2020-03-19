@@ -18,7 +18,7 @@
                         <h5 class="card-title"><%= product.title %></h5>
                         <p class="card-text"><%= product.description %></p>
                         <div style="display: inline-block !important;">
-                            <a href="/products/<%= product.id %>" class="btn btn-outline-secondary btn-sm">Details</a>
+                            <a href="/products/<%= product._id %>" class="btn btn-outline-secondary btn-sm">Details</a>
 
                             <%- include('../includes/add-to-cart.ejs', {product:product}) %>
                         </div>

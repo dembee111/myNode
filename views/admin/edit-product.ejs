@@ -30,7 +30,7 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" ><% if(editing){ %><%= product.description %><% } %></textarea>
                     </div>
                     <% if(editing) { %>
-                        <input type="hidden" value="<%= product.id %>" name="productId" />
+                        <input type="hidden" value="<%= product._id %>" name="productId" />
                     <% } %>
                     <button type="submit" class="btn btn-primary"><% if(editing){ %> Update Product <% } else {%>Add Product<% } %></button>
                 </form>
