@@ -20,7 +20,10 @@
                 <p>Price: $<%= product.price %></p>
 
                 <br>
-                <%- include('../includes/add-to-cart.ejs') %>
+                <% if(isAuthenticated) { %>
+                    <%- include('../includes/add-to-cart.ejs', {product:product}) %>
+                <% } %>
+                <!-- <%- include('../includes/add-to-cart.ejs') %> -->
             </div>
         </div>
     </div>
