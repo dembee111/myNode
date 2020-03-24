@@ -9,6 +9,11 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 col-offset-4">
+                <% if (errorMessage) { %>                   
+                    <div class="alert alert-danger" role="alert">
+                        <%= errorMessage %>
+                    </div>
+                <% } %>
                 <form action="/login" method="POST">
                     <div class="form-group">
                         <label for="email">E-Mail</label>
@@ -20,7 +25,7 @@
                         <input type="password" class="form-control" id="password" aria-describedby="emailHelp" name="password">
 
                     </div>
-                    
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">    
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

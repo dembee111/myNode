@@ -14,6 +14,7 @@
                             <%= p.productId.title %>
                             <span class="badge badge-primary badge-pill">Quantity: <%= p.quantity %></span>
                             <form action="/cart-delete-item" method="POST">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">    
                                 <input type="hidden" name="productId" value="<%= p.productId._id %>" />
                                 <button class="btn btn-outline-danger btn-sm">Delete</button>
                             </form>
@@ -23,6 +24,7 @@
                   </ul>
                   <br>
                   <form action="/create-order" method="POST">
+                      <input type="hidden" name="_csrf" value="<%= csrfToken %>">    
                       <button type="submit" class="btn btn-outline-primary btn-sm">Order now</button>
                   </form>
                   <% } else { %>
