@@ -20,7 +20,7 @@
                         <div style="display: inline-block !important;">
                             <a href="/products/<%= product._id %>" class="btn btn-outline-secondary btn-sm">Details</a>
                             <% if(isAuthenticated) { %>
-                                <%- include('../includes/add-to-cart.ejs', {product:product}) %>
+                            <%- include('../includes/add-to-cart.ejs', {product:product}) %>
                             <% } %>
                         </div>
 
