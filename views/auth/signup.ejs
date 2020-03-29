@@ -17,17 +17,35 @@
                 <form action="/signup" method="POST" novalidate>
                     <div class="form-group">
                         <label for="email">E-Mail</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+                        <input 
+                            class="form-control <%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>"
+                            type="email" 
+                            id="email" 
+                            aria-describedby="emailHelp" 
+                            name="email" 
+                            value="<%= oldInput.email %>">
 
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" aria-describedby="emailHelp" name="password">
+                        <input 
+                            type="password" 
+                            class="form-control <%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %>" 
+                            id="password" 
+                            aria-describedby="emailHelp" 
+                            name="password" 
+                            value="<%= oldInput.password %>">
 
                     </div>
                     <div class="form-group">
                         <label for="confirmPassword">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirmPassword" aria-describedby="confirm" name="confirmPassword">
+                        <input 
+                            type="password" 
+                            class="form-control <%= validationErrors.find(e => e.param === 'confirmPassword') ? 'invalid' : '' %>" 
+                            id="confirmPassword" 
+                            aria-describedby="confirm" 
+                            name="confirmPassword" 
+                            value="<%= oldInput.confirmPassword %>">
 
                     </div>
                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">    
