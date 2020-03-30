@@ -17,22 +17,45 @@
                 <form action="/admin/<% if(editing){ %>edit-product<% } else {%>add-product<% } %>" method="POST">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Product Title</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="title" value="<% if(editing || hasError ){ %><%= product.title %><% } %>">
+                        <input 
+                            type="text" 
+                            class="form-control <%= validationErrors.find(e => e.param === 'title') ? 'invalid' : '' %>" 
+                            id="exampleInputEmail1" 
+                            aria-describedby="emailHelp" 
+                            name="title" 
+                            value="<% if(editing || hasError ){ %><%= product.title %><% } %>">
 
                     </div>
                     <div class="form-group">
                         <label for="imageUrl">Image photo</label>
-                        <input type="text" class="form-control" id="imageUrl" aria-describedby="emailHelp" name="imageUrl" value="<% if(editing || hasError){ %><%= product.imageUrl %><% } %>">
+                        <input 
+                            type="text" 
+                            class="form-control <%= validationErrors.find(e => e.param === 'imageUrl') ? 'invalid' : '' %>" 
+                            id="imageUrl" 
+                            aria-describedby="emailHelp" 
+                            name="imageUrl" 
+                            value="<% if(editing || hasError){ %><%= product.imageUrl %><% } %>">
 
                     </div>
                     <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="number" class="form-control" id="Price" aria-describedby="emailHelp" name="price" step="0.01" value="<% if(editing || hasError){ %><%= product.price %><% } %>">
+                        <input 
+                            type="number" 
+                            class="form-control <%= validationErrors.find(e => e.param === 'price') ? 'invalid' : '' %>" 
+                            id="Price" 
+                            aria-describedby="emailHelp" 
+                            name="price" 
+                            step="0.01" 
+                            value="<% if(editing || hasError){ %><%= product.price %><% } %>">
 
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" ><% if(editing){ %><%= product.description %><% } %></textarea>
+                        <textarea 
+                            class="form-control <%= validationErrors.find(e => e.param === 'description') ? 'invalid' : '' %>" 
+                            id="exampleFormControlTextarea1" 
+                            rows="3" 
+                            name="description" ><% if(editing){ %><%= product.description %><% } %></textarea>
                     </div>
                     <% if(editing) { %>
                         <input type="hidden" value="<%= product._id %>" name="productId" />
