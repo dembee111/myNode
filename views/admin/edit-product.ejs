@@ -14,7 +14,7 @@
                         <%= errorMessage %>
                     </div>
                 <% } %>
-                <form action="/admin/<% if(editing){ %>edit-product<% } else {%>add-product<% } %>" method="POST">
+                <form action="/admin/<% if(editing){ %>edit-product<% } else {%>add-product<% } %>" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Product Title</label>
                         <input 
@@ -26,7 +26,7 @@
                             value="<% if(editing || hasError ){ %><%= product.title %><% } %>">
 
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="imageUrl">Image photo</label>
                         <input 
                             type="text" 
@@ -35,8 +35,15 @@
                             aria-describedby="emailHelp" 
                             name="imageUrl" 
                             value="<% if(editing || hasError){ %><%= product.imageUrl %><% } %>">
-
-                    </div>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="image">Зураг оруулах</label>
+                        <input 
+                            type="file" 
+                            name="image" 
+                            class="form-control-file" 
+                            id="image">
+                      </div>
                     <div class="form-group">
                         <label for="price">Price</label>
                         <input 
