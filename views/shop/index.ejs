@@ -25,10 +25,21 @@
                 </div>
             </div>
             <% } %>
+        </div>
+        
+        <%- include('../includes/pagination.ejs', {
+                    currentPage: currentPage, 
+                    nextPage: nextPage, 
+                    previousPage: previousPage, 
+                    lastPage: lastPage, 
+                    hasNextPage: hasNextPage,
+                    hasPreviousPage: hasPreviousPage
+                }) %>
+
             <% } else { %>
             <h1>Not Found Products</h1>
             <% } %>
-        </div>
+        
 
     </div>
     <%- include('../includes/end.ejs')%>

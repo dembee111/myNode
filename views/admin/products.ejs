@@ -6,10 +6,10 @@
     <%- include('../includes/navigation.ejs')%>
 
     <div class="container">
-        <div class="row mt-5">
+        <div class="row mt-5 justify-content-start">
             <% if (prods.length > 0){ %>
             <% for (let product of prods) { %>
-            <div class="col-md-4 mb-5">
+            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 mb-5">
                 <div class="card" style="width: 22rem;">
                     <img src="/<%= product.imageUrl %>" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -17,18 +17,13 @@
                         <hr>
                         <h5 class="card-title"><%= product.title %></h5>
                         <p class="card-text"><%= product.description %></p>
-                        
-                        
-
                     </div>
                     <div class="card-footer">
-                        <a href="/admin/edit-product/<%= product._id %>?edit=true" class="col-sm-6 btn btn-success">Edit</a>
-                        
-                        <form action="/admin/delete-product" method="POST">
-                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">    
-                            <input type="hidden" value="<%= product._id %>" name="productId" />
-                            <button type="submit" class="col-sm-6 btn btn-danger">Delete</button>
-                        </form>
+                        <a href="/admin/edit-product/<%= product._id %>?edit=true" class="col-sm-6 btn btn-success">Edit</a>                                               
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">    
+                        <input type="hidden" value="<%= product._id %>" name="productId" />
+                        <button type="button" class="col-sm-6 btn btn-danger" onclick="deleteProduct(this)">Delete</button>
+                       
                     </div>
                 </div>
             </div>
@@ -39,4 +34,6 @@
         </div>
 
     </div>
+    <script src="/js/admin.js"></script>
     <%- include('../includes/end.ejs')%>
+    
